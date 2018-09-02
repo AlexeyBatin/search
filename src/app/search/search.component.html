@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <div class="search-wrapper">
+    <form [formGroup]="searchForm" novalidate (ngSubmit)="onSubmit()" class="search-block">
+      <div class="search-input">
+        <mat-form-field>
+          <input matInput formControlName="query" placeholder="Введите текст для поиска" class="inputField">
+        </mat-form-field>
+      </div>
+      <div class="search-select">
+        <mat-form-field>
+          <mat-select formControlName='search' placeholder="Укажите поисковую систему">
+            <mat-option *ngFor="let search of searchList" [value]="search">{{search.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="search-btn">
+        <button mat-stroked-button color="primary" [disabled]="!searchForm.valid" type="submit">Искать</button>
+      </div>
+    </form>
+  </div>
+
+</div>
