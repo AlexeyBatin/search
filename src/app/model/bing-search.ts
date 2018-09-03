@@ -8,7 +8,7 @@ export class BingSearch extends Search {
   }
 
   searchRequest(query: string): void {
-    const encodeQuery = encodeURI(query);
+    const encodeQuery = this.fixedEncodeURIComponent(query);
     window.location.assign(`${this.baseUrl}?q=${encodeQuery}`);
   }
 }
